@@ -1,0 +1,35 @@
+batch_size: 12
+workers: 0
+nepoch: 400
+model_name: InceptionFormer
+
+load_model: log/InceptionFormer/best_cd_t.pth
+start_epoch: 0
+num_points: 4096
+work_dir: log/
+flag: TZ4096
+loss: cd #cd
+manual_seed:  42
+step_interval_to_print: 100
+epoch_interval_to_save: 1
+epoch_interval_to_val: 1
+
+lr: 0.0001
+lr_decay: True
+lr_decay_interval: 7
+lr_decay_rate: 0.8
+lr_step_decay_epochs: null
+lr_step_decay_rates: null
+lr_clip: 1.e-6
+optimizer: AdamW
+weight_decay: 0
+betas: 0.9, 0.999
+
+device: '0'
+dataset: 'TreeCompletion3D'
+TreeCompletion3Dpath: /data/TreeCompletion3D/
+# test
+save_vis: True
+
+# python train_TreeCompletion3D.py -c TreeCompletion3D.yaml
+# python test_TreeCompletion3D.py -c TreeCompletion3D.yaml
